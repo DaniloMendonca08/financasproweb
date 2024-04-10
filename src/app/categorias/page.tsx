@@ -1,5 +1,5 @@
 import NavBar from "@/components/NavBar"
-import { Apple, ChevronDown, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { CategoriaItem } from "./CategoriaItem";
 import { Button } from "@nextui-org/react";
 
