@@ -2,30 +2,14 @@ import NavBar from "@/components/NavBar"
 import { Plus } from "lucide-react";
 import { CategoriaItem } from "./CategoriaItem";
 import { Button } from "@nextui-org/react";
+import next from "next/types";
 
 
-export default function Categorias() {
+export default async function Categorias() {
 
-  const categorias = [
-  {
-    id: 1,
-    nome: "alimentação",
-    icone: "apple"
-  },
-
-  {
-    id: 2,
-    nome: "transporte",
-    icone: "bus"
-  },
-
-  {
-    id: 3,
-    nome: "educação",
-    icone: "book"
-  },
-
-]
+  async function getCategorias() {
+    const resp = await fetch("http://localhost:8080/categoria", { next: revalidate })
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center">
