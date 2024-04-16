@@ -4,12 +4,9 @@ import { CategoriaItem } from "./CategoriaItem";
 import { Button } from "@nextui-org/react";
 import next from "next/types";
 
-
 export default async function Categorias() {
 
-  async function getCategorias() {
-    const resp = await fetch("http://localhost:8080/categoria", { next: revalidate })
-  }
+  const categorias : Array<Categoria> = await getCategorias()
 
   return (
     <main className="flex min-h-screen flex-col items-center">

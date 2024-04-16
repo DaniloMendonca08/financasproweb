@@ -1,3 +1,4 @@
+import { icons } from "@/app/utils/icons"
 import { Apple, Book, Bus } from "lucide-react"
 
 interface IconProps {
@@ -5,14 +6,10 @@ interface IconProps {
 
 }
 
-const icons: { [key: string] : JSX.Element} = {
-    apple: <Apple />,
-    bus: <Bus />,
-    book: <Book />
-}
 
 export function Icon({name} : IconProps) {
-    return icons[name]
+    
+    return icons.find(icon => icon.name == name)
 
 
     

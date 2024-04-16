@@ -1,6 +1,10 @@
+"use client"
+
 import DropDownActions from "@/components/DropDownActions";
+import { destroy } from "../actions/categorias/destroy";
 import { Icon } from "@/components/Icon";
-import { Apple, ChevronDown } from "lucide-react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface CategoriaItemProps {
   categoria : Categoria
@@ -8,6 +12,20 @@ interface CategoriaItemProps {
 
 export function CategoriaItem(props: CategoriaItemProps) {
   const categoria = props.categoria
+  const router = useRouter()
+
+  function handleDelete(){
+    toast.promise(
+      destroy(categoria.id),
+      {
+          loading:"apagando...",
+          success:"apagado com sucesso",
+          error:"erro ao apagar"
+      }
+    );
+      
+      toast("apagado com sucesso")
+  }
 
   return (
     <div className="flex justify-between">
@@ -15,7 +33,9 @@ export function CategoriaItem(props: CategoriaItemProps) {
             <Icon name={categoria.icone}/>
             <span>{categoria.nome}</span>
           </div>
-            <DropDownActions />
+            <DropDownActions
+             onEdit = {() =< router.push("/categorias/" + categoria.id)}
+             onDelete={handleDelete}/>
         </div>
   )
 }
