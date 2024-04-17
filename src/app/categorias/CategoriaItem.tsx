@@ -35,7 +35,8 @@ export function CategoriaItem(props: CategoriaItemProps) {
           </div>
             <DropDownActions
              onEdit = {() =< router.push("/categorias/" + categoria.id)}
-             onDelete={handleDelete}/>
+             onDelete={handleDelete}
+             />
         </div>
   )
 }
